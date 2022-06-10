@@ -3,7 +3,9 @@
 #~~~~~~~~~~~~~~
 
 
-# data --------------------------------------------------------------------
+# solution ----------------------------------------------------------------
+
+# * part one --------------------------------------------------------------------
 
 bin_data <- read.csv(file = "data/day_three", col.names = "bin", header = FALSE, colClasses = "character")
 
@@ -19,7 +21,7 @@ strtoi(paste(epsilon, collapse = ""), base = 2)
 (answer <- strtoi(paste(gamma, collapse = ""), base = 2) * strtoi(paste(epsilon, collapse = ""), base = 2))
 
 
-#part 2
+# * part two ----------------------------------------------------------------
 
 i <- 1L
 while(i <= ncol(bin_m)) {
@@ -44,6 +46,8 @@ co_2 <- strtoi(paste(bin_m, collapse = ""), base = 2)
 
 # test --------------------------------------------------------------------
 
+# * part one --------------------------------------------------------------------
+
 bin_data <- read.csv(file = "data/day_three_test", col.names = "bin", header = FALSE, colClasses = "character")
 bin_m   <- matrix(data = as.integer(unlist(strsplit(bin_data[["bin"]], split = ""))), ncol = 5, byrow = TRUE)
 
@@ -53,7 +57,7 @@ epsilon <- as.integer(colSums(bin_m) < nrow(bin_data)/2)
 strtoi(paste(gamma, collapse = ""), base = 2)
 strtoi(paste(epsilon, collapse = ""), base = 2)
 
-#part 2
+# * part two ----------------------------------------------------------------
 
 i <- 1L
 while(i <= ncol(bin_m)) {

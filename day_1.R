@@ -21,7 +21,7 @@ length(diff_depth)
 sum_inc <- sum(diff_depth > 0)
 sum_inc
 
-# Part twp ----------------------------------------------------------------
+# Part two ----------------------------------------------------------------
 
 shift_sum <- vector(mode = "numeric", length = nrow(sonar_data) - 2)
 for(i in seq_along(shift_sum)) {
