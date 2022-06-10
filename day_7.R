@@ -1,4 +1,9 @@
+#~~~~~~~~~~~~~~
+##Day 7
+#~~~~~~~~~~~~~~
 
+
+# solution ----------------------------------------------------------------
 
 fuel_con <- function(pos_vec) {
   align_pos <- min(pos_vec): max(pos_vec)
@@ -15,20 +20,6 @@ fuel_con <- function(pos_vec) {
               "final_pos" = align_pos[which.min(real_fuel)]))
 }
 
-
-#part 1
-#test
-crab_pos <- c(16,1,2,0,4,2,7,1,2,14)
-fuel_con(crab_pos)
-
-crab_pos <- readLines(con = "data/day_seven_one")
-crab_pos <- as.integer(unlist(strsplit(crab_pos, split =",")))
-
-fuel_con(crab_pos)
-
-#### r like
-pos_vec <- c(16,1,2,0,4,2,7,1,2,14)
-
 FuelCon <- function(crab_pos) {
   align_pos <- min(crab_pos): max(crab_pos)
   fuel_sum     <- sapply(align_pos, function(x){
@@ -39,14 +30,32 @@ FuelCon <- function(crab_pos) {
   })
   return(fuel_sum)
 }
-fuel_consumption <- FuelCon(pos_vec)
-min(unlist((fuel_consumption[1, ])))
-min(unlist((fuel_consumption[2,])))
+
+
+# # * part one ------------------------------------------------------------
+
+crab_pos <- readLines(con = "data/day_seven_one")
+crab_pos <- as.integer(unlist(strsplit(crab_pos, split =",")))
+
+fuel_con(crab_pos)
+
 crab_pos <- readLines(con = "data/day_seven_one")
 crab_pos <- as.integer(unlist(strsplit(crab_pos, split =",")))
 
 fuel_con <- FuelCon(crab_pos)  
 
-min(unlist((fuel_con[1, ])))
-min(unlist((fuel_con[2,])))
+# test --------------------------------------------------------------------
+
+crab_pos <- c(16,1,2,0,4,2,7,1,2,14)
+fuel_consumption <- fuel_con(crab_pos)
+
+pos_vec <- c(16,1,2,0,4,2,7,1,2,14)
+
+
+fuel_consumption <- FuelCon(pos_vec)
+min(unlist((fuel_consumption[1, ])))
+min(unlist((fuel_consumption[2,])))
+
+
+
  
