@@ -3,7 +3,7 @@
 #~~~~~~~~~~~~~~
 
 
-# data --------------------------------------------------------------------
+# solution --------------------------------------------------------------------
 
 string_vec <- readLines(con = "data/day_five_one")
 string_vec <- unlist(strsplit(string_vec, split = "->"))
