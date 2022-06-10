@@ -3,12 +3,10 @@
 #~~~~~~~~~~~~~~
 
 
-# data --------------------------------------------------------------------
+# solution --------------------------------------------------------------------
 
 rand_n   <- read.csv(file = "data/day_four_seq", header = FALSE, sep = ",")
-# rand_seq <- readChar("data/day_four_seq", nchars = rand_n * 2)
-# rand_seq <- as.integer(unlist((strsplit(rand_seq, split = ","))))
-rand_seq <- as.integer(rand_n[1,])
+rand_seq <- as.integer(rand_n[1, ])
 #read the matrices
 
 mat_n <- lapply(1:100, function(x){
@@ -109,14 +107,11 @@ if(any(c(row_sums, col_sums) > 4)){
 }
 
 
-# test day 4 --------------------------------------------------------------
+# test  --------------------------------------------------------------
 
 rand_n   <- read.csv(file = "data/day_four_test_seq", header = FALSE, sep = ",")
-# rand_seq <- readChar("data/day_four_seq", nchars = rand_n * 2)
-# rand_seq <- as.integer(unlist((strsplit(rand_seq, split = ","))))
 rand_seq <- as.integer(rand_n[1,])
 #read the matrices
-
 mat_n <- lapply(1:3, function(x){
   as.matrix(read.csv(file = "data/day_four_test_mat", nrows = 5L, skip = (x - 1L) * 6L , 
                      sep = "", header = FALSE))
