@@ -1,5 +1,9 @@
+#~~~~~~~~~~~~~~
+##Day 6
+#~~~~~~~~~~~~~~
 
-# data --------------------------------------------------------------------
+
+# solution --------------------------------------------------------------------
 
 initial_state <- readLines(con = "data/day_six_one")
 initial_state <- as.integer(unlist(strsplit(initial_state, split =",")))
@@ -70,7 +74,20 @@ sim_fish_faster <- function(ini_state = c(3L, 4L, 3L, 1L, 2L), n_run = 18L, vec_
   return(na.omit(fish_vec))
 }
 
-#test
+
+# * part 1 ------------------------------------------------------------------
+
+fish_state <- sim_fish_faster(ini_state = initial_state, n_run = 80L, vec_length = 1e7)
+length(fish_state)
+
+# * part 2 ------------------------------------------------------------------
+
+#does not finish
+system.time(ocean_fish <- sim_fish_fast(n_run = 200L))
+system.time(ocean_fish <- sim_fish_faster(ini_state = 1L, n_run = 256L, vec_length = 1e9))
+
+# test --------------------------------------------------------------------
+
 fish_state <- sim_fish(n_run = 80L)
 length(fish_state)
 fish_fast <- sim_fish_fast(n_run = 80L)
@@ -78,10 +95,6 @@ length(fish_fast)
 length(sim_fish_faster())
 length(sim_fish_faster(n_run = 80L))
 
-#part one
-fish_state <- sim_fish_faster(ini_state = initial_state, n_run = 80L, vec_length = 1e7)
-length(fish_state)
-#part two
-system.time(ocean_fish <- sim_fish_fast(n_run = 200L))
-system.time(ocean_fish <- sim_fish_faster(ini_state = 1L, n_run = 256L, vec_length = 1e9))
+
+
 
