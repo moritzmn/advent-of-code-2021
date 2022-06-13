@@ -26,7 +26,7 @@ integer_split <- lapply(raw_data, function(x){
 m <- do.call(rbind, integer_split)
 
 
-# # * part 1 --------------------------------------------------------------
+# * part one --------------------------------------------------------------
 
 #add NA
 m_t <- cbind(NA, rbind(NA, m,  NA), NA)
@@ -55,7 +55,7 @@ for(k in seq(steps)) {
 sum(sum_flashes)
 
 
-# # * part 2 --------------------------------------------------------------
+# * part two --------------------------------------------------------------
 
 all_flashed <- ncol(m) * nrow(m)
 m_t <- cbind(NA, rbind(NA, m,  NA), NA)

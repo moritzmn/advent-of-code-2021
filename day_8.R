@@ -26,7 +26,7 @@ count_chars <- lapply(output_signals, function(x){
 })
 sum(unlist(count_chars))
 
-# # * part two ------------------------------------------------------------
+# * part two ------------------------------------------------------------
 
 patterns <- c("cagedb","ab", "gcdfa", "fbcad", "eafb", "cdfbe", "cdfgeb", "dab", "acedgfb", "cefabd")
 

@@ -36,14 +36,14 @@ dot_mat[cbind(mat[, 2] + 1 , mat[, 1] + 1)] <- 1
 sum(dot_mat, na.rm = TRUE)
 
 
-# # * part 1 ---------------------------------------------------------------------
+# * part one ---------------------------------------------------------------------
 
 
 folded_m <- FoldMatrix(dot_mat, ax_is = "x", value = 656)
 sum(folded_m, na.rm = TRUE)
 
 
-# # * part 2 --------------------------------------------------------------
+# * part two --------------------------------------------------------------
 
 instructions <- read.csv(file = "data/day_thirteen_instructions", sep = " ", header = FALSE)
 instructions <- instructions[["V3"]]

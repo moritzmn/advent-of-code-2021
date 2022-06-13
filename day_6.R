@@ -75,12 +75,12 @@ sim_fish_faster <- function(ini_state = c(3L, 4L, 3L, 1L, 2L), n_run = 18L, vec_
 }
 
 
-# * part 1 ------------------------------------------------------------------
+# * part one ------------------------------------------------------------------
 
 fish_state <- sim_fish_faster(ini_state = initial_state, n_run = 80L, vec_length = 1e7)
 length(fish_state)
 
-# * part 2 ------------------------------------------------------------------
+# * part two ------------------------------------------------------------------
 
 #does not finish
 system.time(ocean_fish <- sim_fish_fast(n_run = 200L))
