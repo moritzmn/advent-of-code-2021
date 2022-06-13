@@ -1,4 +1,14 @@
-ins2 <- function(a, bs, pos){
+#~~~~~~~~~~~~~~
+##Day 14
+#~~~~~~~~~~~~~~
+
+
+# solution ----------------------------------------------------------------
+
+
+# * part one ------------------------------------------------------------
+
+InsertV <- function(a, bs, pos){
   as  <- split(a,cumsum(seq(a) %in% (pos + 1)))
   idx <- order(c(seq_along(as), seq_along(bs)))
   unlist(c(as,bs)[idx])
@@ -14,7 +24,7 @@ poly_splits <- lapply(plolymeres, function(x){
 poly_splits <- do.call(rbind, poly_splits)
 ins_vec <- template
 k <-  0L
-while(k <= 39L) {
+while(k <= 9L) {
   k <- k + 1L
   ind <- vector(mode = "integer", length = length(ins_vec) -1L)
   insert_values <- vector(mode = "integer", length = length(ins_vec) -1L)
@@ -24,10 +34,14 @@ while(k <= 39L) {
     insert_values[i] <- poly_splits[ind[i], 2]
   }
   
-  ins_vec <- ins2(a = ins_vec, bs =  insert_values, seq(length(ins_vec) - 1))
+  ins_vec <- InsertV(a = ins_vec, bs =  insert_values, seq(length(ins_vec) - 1))
 }
 ins_vec <- factor(unname(ins_vec))
 
 sum_levels <- table(ins_vec)
 max(sum_levels) - min(sum_levels)
+
+
+# * part two --------------------------------------------------------------
+
 

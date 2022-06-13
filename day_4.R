@@ -14,7 +14,7 @@ mat_n <- lapply(1:100, function(x){
                      sep = "", header = FALSE))
 })
 
-# # * part one ------------------------------------------------------------
+# * part one ------------------------------------------------------------
 
 #who wins when
 who_won <- lapply(mat_n, function(x) {
@@ -64,7 +64,7 @@ sum_not_drawn <- sum(bingo_card_won[!mask])
 (answer <- last_number_drawn * sum_not_drawn)
 
 
-# # * part two ------------------------------------------------------------
+# * part two ------------------------------------------------------------
 
 #who wins last
 index_seq <- max(who_won, na.rm = TRUE)

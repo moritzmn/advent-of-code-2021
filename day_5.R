@@ -6,7 +6,7 @@
 # solution --------------------------------------------------------------------
 
 
-# # * part one ------------------------------------------------------------
+# * part one ------------------------------------------------------------
 
 string_vec <- readLines(con = "data/day_five_one")
 string_vec <- unlist(strsplit(string_vec, split = "->"))
@@ -26,7 +26,7 @@ for(i in 1 : nrow(matrix_vec)){
 (answer <- length(ini_mat[ini_mat > 1]))
 
 
-# # * part two ------------------------------------------------------------
+# * part two ------------------------------------------------------------
 
 matrix_vec <- matrix(data = string_vec, ncol = 4, byrow = TRUE)
 

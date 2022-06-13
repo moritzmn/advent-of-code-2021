@@ -52,7 +52,7 @@ for(k in seq(steps)) {
   sum_flashes[k] <- sum(m_t > 9L, na.rm = TRUE)
   m_t[m_t > 9L] <- 0L
 }
-sum(sum_flashes)
+(answer <- sum(sum_flashes))
 
 
 # * part two --------------------------------------------------------------
@@ -83,7 +83,7 @@ while(sum_flashes < all_flashed) {
   k <- k + 1L
 }
 
-k
+(answer <- k)
 
 
 

@@ -40,7 +40,7 @@ sum(dot_mat, na.rm = TRUE)
 
 
 folded_m <- FoldMatrix(dot_mat, ax_is = "x", value = 656)
-sum(folded_m, na.rm = TRUE)
+(answer <- sum(folded_m, na.rm = TRUE))
 
 
 # * part two --------------------------------------------------------------

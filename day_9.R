@@ -29,7 +29,7 @@ mask <- lapply(rows, function(y) {
   vMNeighbors(m_t, i = y, j = cols)
 })
 mask <- do.call(rbind, mask)
-sum(m[mask] + 1)
+(answer <- sum(m[mask] + 1))
 
 # test --------------------------------------------------------------------
 

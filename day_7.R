@@ -32,12 +32,12 @@ FuelCon <- function(crab_pos) {
 }
 
 
-# # * part one ------------------------------------------------------------
+# * part one + two ------------------------------------------------------------
 
 crab_pos <- readLines(con = "data/day_seven_one")
 crab_pos <- as.integer(unlist(strsplit(crab_pos, split =",")))
 
-fuel_con(crab_pos)
+(answer <- fuel_con(crab_pos))
 
 crab_pos <- readLines(con = "data/day_seven_one")
 crab_pos <- as.integer(unlist(strsplit(crab_pos, split =",")))

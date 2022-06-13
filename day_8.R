@@ -3,8 +3,6 @@
 #~~~~~~~~~~~~~~
 
 
-
-
 # solution ----------------------------------------------------------------
 
 
@@ -24,7 +22,7 @@ count_chars <- lapply(output_signals, function(x){
   sum(nchar(x) %in% c(2, 3, 4, 7))
   
 })
-sum(unlist(count_chars))
+(answer <- sum(unlist(count_chars)))
 
 # * part two ------------------------------------------------------------
 
