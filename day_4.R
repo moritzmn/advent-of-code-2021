@@ -14,6 +14,8 @@ mat_n <- lapply(1:100, function(x){
                      sep = "", header = FALSE))
 })
 
+# # * part one ------------------------------------------------------------
+
 #who wins when
 who_won <- lapply(mat_n, function(x) {
   mask <- matrix(FALSE, nrow = 5, ncol = 5)
@@ -58,7 +60,11 @@ m    <- na.omit(arrayInd(match(rand_seq[1:index_seq], bingo_card_won ), .dim = d
 mask[m[,]] <- TRUE
 
 sum_not_drawn <- sum(bingo_card_won[!mask])
-answer <- last_number_drawn * sum_not_drawn
+
+(answer <- last_number_drawn * sum_not_drawn)
+
+
+# # * part two ------------------------------------------------------------
 
 #who wins last
 index_seq <- max(who_won, na.rm = TRUE)
@@ -70,41 +76,8 @@ m    <- na.omit(arrayInd(match(rand_seq[1:index_seq], bingo_card_won ), .dim = d
 mask[m[,]] <- TRUE
 
 sum_not_drawn <- sum(bingo_card_won[!mask])
-answer <- last_number_drawn * sum_not_drawn
 
-x <- mat_n[[5]]
-
-mask <- matrix(FALSE, nrow = 5, ncol = 5)
-m    <- na.omit(arrayInd(match(rand_seq, x), .dim = dim(x)))
-mask[m[,]] <- TRUE
-row_sums <- rowSums(mask)
-col_sums <- colSums(mask)
-if(any(c(row_sums, col_sums) > 4)){
-  
-  if(any(row_sums > 4)) {
-    row_mat <- x[which(row_sums > 4),,drop = FALSE]
-    max_ind_row <- vector(mode = "integer", length = nrow(row_mat))
-    for(i in 1:nrow(row_mat)) {
-      max_ind_row[i] <- max(which(rand_seq %in% row_mat[i,])) 
-    }
-    max_ind_row <- min(max_ind_row)
-  } else {
-    max_ind_row <- NA
-  }
-  if(any(col_sums > 4)){
-    col_mat <- x[,which(col_sums > 4), drop = FALSE]
-    max_ind_col <- vector(mode = "integer", length = ncol(col_mat))
-    for(i in 1:ncol(col_mat)) {
-      max_ind_col[i] <- max(which(rand_seq %in% col_mat[,i])) 
-    }
-    max_ind_col <- min(max_ind_col)
-  } else {
-    max_ind_col <- NA
-  } 
-  min(na.omit(c(max_ind_row, max_ind_col)))
-} else {
-  NA
-}
+(answer <- last_number_drawn * sum_not_drawn)
 
 
 # test  --------------------------------------------------------------
@@ -117,6 +90,38 @@ mat_n <- lapply(1:3, function(x){
                      sep = "", header = FALSE))
 })
 
+# x <- mat_n[[5]]
+# mask <- matrix(FALSE, nrow = 5, ncol = 5)
+# m    <- na.omit(arrayInd(match(rand_seq, x), .dim = dim(x)))
+# mask[m[,]] <- TRUE
+# row_sums <- rowSums(mask)
+# col_sums <- colSums(mask)
+# if(any(c(row_sums, col_sums) > 4)){
+#   
+#   if(any(row_sums > 4)) {
+#     row_mat <- x[which(row_sums > 4),,drop = FALSE]
+#     max_ind_row <- vector(mode = "integer", length = nrow(row_mat))
+#     for(i in 1:nrow(row_mat)) {
+#       max_ind_row[i] <- max(which(rand_seq %in% row_mat[i,])) 
+#     }
+#     max_ind_row <- min(max_ind_row)
+#   } else {
+#     max_ind_row <- NA
+#   }
+#   if(any(col_sums > 4)){
+#     col_mat <- x[,which(col_sums > 4), drop = FALSE]
+#     max_ind_col <- vector(mode = "integer", length = ncol(col_mat))
+#     for(i in 1:ncol(col_mat)) {
+#       max_ind_col[i] <- max(which(rand_seq %in% col_mat[,i])) 
+#     }
+#     max_ind_col <- min(max_ind_col)
+#   } else {
+#     max_ind_col <- NA
+#   } 
+#   min(na.omit(c(max_ind_row, max_ind_col)))
+# } else {
+#   NA
+# }
 
 who_won <- lapply(mat_n, function(x) {
   mask <- matrix(FALSE, nrow = 5, ncol = 5)
