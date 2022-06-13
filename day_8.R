@@ -3,8 +3,8 @@
 #~~~~~~~~~~~~~~
 
 
-# data --------------------------------------------------------------------
-#test
+# test --------------------------------------------------------------------
+
 raw_data <- readLines(con = "data/day_eight_test")
 raw_data <- strsplit(raw_data, split = "[|]")
 
@@ -19,6 +19,12 @@ count_chars <- lapply(output_signals, function(x){
   
 })
 sum(unlist(count_chars))
+
+
+# solution ----------------------------------------------------------------
+
+
+# * part one ----------------------------------------------------------------
 
 #puzzle part 1
 raw_data <- readLines(con = "data/day_eight_one")
@@ -36,7 +42,8 @@ count_chars <- lapply(output_signals, function(x){
 })
 sum(unlist(count_chars))
 
-#part 2
+# # * part two ------------------------------------------------------------
+
 patterns <- c("cagedb","ab", "gcdfa", "fbcad", "eafb", "cdfbe", "cdfgeb", "dab", "acedgfb", "cefabd")
 
 patterns_sorted <- sapply(patterns, function(x){
@@ -49,7 +56,6 @@ output_sorted <- lapply(output_signals, function(x){
   })
   
 })
-
 
 match(output_sorted[[100]], patterns_sorted) 
 

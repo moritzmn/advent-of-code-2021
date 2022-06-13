@@ -3,9 +3,8 @@
 #~~~~~~~~~~~~~~
 
 
-# data --------------------------------------------------------------------
+# test --------------------------------------------------------------------
 
-#test
 raw_data <- readLines(con = "data/day_nine_test")
 integer_split <- lapply(raw_data, function(x){
   as.integer(strsplit(x, split = "")[[1]])
@@ -31,8 +30,11 @@ mask <- lapply(rows, function(y) {
 mask <- do.call(rbind, mask)
 m[mask] + 1
 
-# part1 -------------------------------------------------------------------
-#part 1
+
+# solution ----------------------------------------------------------------
+
+# # * part1 -------------------------------------------------------------------
+
 raw_data <- readLines(con = "data/day_nine")
 integer_split <- lapply(raw_data, function(x){
   as.integer(strsplit(x, split = "")[[1]])

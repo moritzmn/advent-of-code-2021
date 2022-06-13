@@ -3,7 +3,7 @@
 #~~~~~~~~~~~~~~
 
 
-# data --------------------------------------------------------------------
+# solution --------------------------------------------------------------------
 
 raw_data <- readLines(con = "data/day_eleven")
 
@@ -12,7 +12,7 @@ integer_split <- lapply(raw_data, function(x){
 })
 m <- do.call(rbind, integer_split)
 
-#add N]
+#add NA
 m_t <- cbind(NA, rbind(NA, m,  NA), NA)
 
 # function ----------------------------------------------------------------
