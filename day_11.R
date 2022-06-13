@@ -5,17 +5,6 @@
 
 # solution --------------------------------------------------------------------
 
-raw_data <- readLines(con = "data/day_eleven")
-
-integer_split <- lapply(raw_data, function(x){
-  as.integer(strsplit(x, split = "")[[1]])
-})
-m <- do.call(rbind, integer_split)
-
-#add NA
-m_t <- cbind(NA, rbind(NA, m,  NA), NA)
-
-# function ----------------------------------------------------------------
 MNeighbors <- function(mat, i = 2L, j = 3L, zero = FALSE) {
   #mat[i, j] < c(mat[i, j - c(-1L, 1L)], mat[i - c(-1L, 1L), j]), na.rm = TRUE)
   range_vec <- -1:1
@@ -28,6 +17,21 @@ MNeighbors <- function(mat, i = 2L, j = 3L, zero = FALSE) {
   mat[,c(1, ncol(mat))] <- NA
   return(mat)
 }
+
+raw_data <- readLines(con = "data/day_eleven")
+
+integer_split <- lapply(raw_data, function(x){
+  as.integer(strsplit(x, split = "")[[1]])
+})
+m <- do.call(rbind, integer_split)
+
+
+# # * part 1 --------------------------------------------------------------
+
+#add NA
+m_t <- cbind(NA, rbind(NA, m,  NA), NA)
+
+
 steps <- 100L
 sum_flashes <- integer(length = steps)
 for(k in seq(steps)) {
@@ -49,6 +53,9 @@ for(k in seq(steps)) {
   m_t[m_t > 9L] <- 0L
 }
 sum(sum_flashes)
+
+
+# # * part 2 --------------------------------------------------------------
 
 all_flashed <- ncol(m) * nrow(m)
 m_t <- cbind(NA, rbind(NA, m,  NA), NA)
