@@ -5,6 +5,9 @@
 
 # solution --------------------------------------------------------------------
 
+
+# # * part one ------------------------------------------------------------
+
 string_vec <- readLines(con = "data/day_five_one")
 string_vec <- unlist(strsplit(string_vec, split = "->"))
 string_vec <- trimws(string_vec)
@@ -20,7 +23,10 @@ for(i in 1 : nrow(matrix_vec)){
   ini_mat[x_ind, y_ind] <- ini_mat[x_ind, y_ind] + 1
 }
 
-length(ini_mat[ini_mat > 1])
+(answer <- length(ini_mat[ini_mat > 1]))
+
+
+# # * part two ------------------------------------------------------------
 
 matrix_vec <- matrix(data = string_vec, ncol = 4, byrow = TRUE)
 
@@ -34,7 +40,7 @@ for(i in 1 : nrow(matrix_vec)){
   y_ind <- x_ind * matrix_vec[i, 5] + matrix_vec[i, 6]
   ini_mat[cbind(x_ind, y_ind)] <- ini_mat[cbind(x_ind, y_ind)] + 1
 }
-length(ini_mat[ini_mat > 1])
+(answer <- length(ini_mat[ini_mat > 1]))
 
 # test --------------------------------------------------------------------
 
