@@ -4,6 +4,4 @@
 .Ruserdata
 *.Rproj
 aoc.R
-day_10.R
-day_12.R
-day_15.R
+
