@@ -3,22 +3,6 @@
 #~~~~~~~~~~~~~~
 
 
-# test --------------------------------------------------------------------
-
-raw_data <- readLines(con = "data/day_eight_test")
-raw_data <- strsplit(raw_data, split = "[|]")
-
-output_signals <- lapply(raw_data, function(x) {
-  unlist(strsplit(x[2], split = " "))[-1]
-  })
-
-# 1, 4, 7, 8 signals
-
-count_chars <- lapply(output_signals, function(x){
-  sum(nchar(x) %in% c(2, 3, 4, 7))
-  
-})
-sum(unlist(count_chars))
 
 
 # solution ----------------------------------------------------------------
@@ -64,3 +48,20 @@ test_sorted <- sapply(test, function(x) {
   paste(sort(strsplit(x, split = "")[[1]]), collapse = "") 
 })
 match(test_sorted, patterns_sorted)
+
+# test --------------------------------------------------------------------
+
+raw_data <- readLines(con = "data/day_eight_test")
+raw_data <- strsplit(raw_data, split = "[|]")
+
+output_signals <- lapply(raw_data, function(x) {
+  unlist(strsplit(x[2], split = " "))[-1]
+})
+
+# 1, 4, 7, 8 signals
+
+count_chars <- lapply(output_signals, function(x){
+  sum(nchar(x) %in% c(2, 3, 4, 7))
+  
+})
+sum(unlist(count_chars))

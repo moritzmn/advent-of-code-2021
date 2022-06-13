@@ -1,24 +1,9 @@
 #~~~~~~~~~~~~~~
 ##Day 13
 #~~~~~~~~~~~~~~
-set.seed(1401)
-m <- sample(c(1,0), 25, replace = TRUE)
-m <- matrix(m, nrow = 5)
 
-#fold y
-y <- 4L
 
-y_y <- min(max(seq(nrow(m) - y)), max(y - seq(y)))
-where_one <- m[y + y_y, ] == 1 
-
-m[y-y_y, ][where_one] <- 1
-
-m <- m[-c(y, y + y_y),]
-
-#fold x
-set.seed(1401)
-m <- sample(c(1,0), 25, replace = TRUE)
-m <- matrix(m, nrow = 5)
+# solution ----------------------------------------------------------------
 
 FoldMatrix <- function(m, ax_is = "y", value) {
   if(ax_is == "y") {
@@ -44,32 +29,22 @@ FoldMatrix <- function(m, ax_is = "y", value) {
   return(m)
 }
 
-#FoldMatrix(m, value = 4L, ax_is = "x")
-
-
-#test
-mat <- as.matrix(read.csv(file = "data/day_thirteen_test", header = FALSE))
-dot_mat <- matrix(data = NA, ncol = max(mat[,1] + 1), nrow = max(mat[,2] + 1))
-dot_mat[cbind(mat[, 2] + 1, mat[,1] + 1)] <- 1
-sum(dot_mat, na.rm = TRUE)
-
-folded_m <- FoldMatrix(dot_mat, ax_is = "y", value = 11)
-sum(folded_m, na.rm = TRUE)
-folded_m <- FoldMatrix(folded_m, ax_is = "x", value = 3)
-sum(folded_m, na.rm = TRUE)
-#part1
-
-# data --------------------------------------------------------------------
 
 mat <- as.matrix(read.csv(file = "data/day_thirteen_paper", header = FALSE))
 dot_mat <- matrix(data = NA, ncol = max(mat[, 1] + 1), nrow = max(mat[, 2] + 1))
 dot_mat[cbind(mat[, 2] + 1 , mat[, 1] + 1)] <- 1
 sum(dot_mat, na.rm = TRUE)
-#part 1
-#folded_m <- FoldMatrix(dot_mat, ax_is = "x", value = 656)
-#sum(folded_m, na.rm = TRUE)
 
-#part2
+
+# # * part 1 ---------------------------------------------------------------------
+
+
+folded_m <- FoldMatrix(dot_mat, ax_is = "x", value = 656)
+sum(folded_m, na.rm = TRUE)
+
+
+# # * part 2 --------------------------------------------------------------
+
 instructions <- read.csv(file = "data/day_thirteen_instructions", sep = " ", header = FALSE)
 instructions <- instructions[["V3"]]
 instructions <- strsplit(instructions, split = "=")
@@ -89,4 +64,44 @@ dot_mat
 
 
 sum(dot_mat, na.rm = TRUE)
+
+
+# test --------------------------------------------------------------------
+
+set.seed(1401)
+m <- sample(c(1,0), 25, replace = TRUE)
+m <- matrix(m, nrow = 5)
+
+#fold y
+y <- 4L
+
+y_y <- min(max(seq(nrow(m) - y)), max(y - seq(y)))
+where_one <- m[y + y_y, ] == 1 
+
+m[y-y_y, ][where_one] <- 1
+
+m <- m[-c(y, y + y_y),]
+
+#fold x
+set.seed(1401)
+m <- sample(c(1,0), 25, replace = TRUE)
+m <- matrix(m, nrow = 5)
+
+
+
+#FoldMatrix(m, value = 4L, ax_is = "x")
+
+#test
+mat <- as.matrix(read.csv(file = "data/day_thirteen_test", header = FALSE))
+dot_mat <- matrix(data = NA, ncol = max(mat[,1] + 1), nrow = max(mat[,2] + 1))
+dot_mat[cbind(mat[, 2] + 1, mat[,1] + 1)] <- 1
+sum(dot_mat, na.rm = TRUE)
+
+folded_m <- FoldMatrix(dot_mat, ax_is = "y", value = 11)
+sum(folded_m, na.rm = TRUE)
+folded_m <- FoldMatrix(folded_m, ax_is = "x", value = 3)
+sum(folded_m, na.rm = TRUE)
+#part1
+
+
 
